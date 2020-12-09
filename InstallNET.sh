@@ -795,7 +795,7 @@ url --url="$LinuxMirror/$DIST/os/$VER/"
 rootpw --iscrypted $myPASSWORD
 auth --useshadow --passalgo=sha512
 firstboot --disable
-lang zh_CN
+lang zh_CN.UTF-8
 keyboard us
 selinux --disabled
 logging --level=info
