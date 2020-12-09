@@ -635,7 +635,7 @@ $UNCOMP < /tmp/$NewIMG | cpio --extract --verbose --make-directories --no-absolu
 
 if [[ "$linux_relese" == 'debian' ]] || [[ "$linux_relese" == 'ubuntu' ]]; then
 cat >/tmp/boot/preseed.cfg<<EOF
-d-i debian-installer/locale string en_US
+d-i debian-installer/locale string zh_CN
 d-i console-setup/layoutcode string us
 
 d-i keyboard-configuration/xkb-keymap string us
@@ -791,7 +791,7 @@ url --url="$LinuxMirror/$DIST/os/$VER/"
 rootpw --iscrypted $myPASSWORD
 auth --useshadow --passalgo=sha512
 firstboot --disable
-lang en_US
+lang zh_CN
 keyboard us
 selinux --disabled
 logging --level=info
