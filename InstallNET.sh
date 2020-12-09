@@ -635,7 +635,9 @@ $UNCOMP < /tmp/$NewIMG | cpio --extract --verbose --make-directories --no-absolu
 
 if [[ "$linux_relese" == 'debian' ]] || [[ "$linux_relese" == 'ubuntu' ]]; then
 cat >/tmp/boot/preseed.cfg<<EOF
-d-i debian-installer/locale string zh_CN
+d-i debian-installer/language string zh_CN
+d-i debian-installer/country string CN
+d-i debian-installer/locale string zh_CN.UTF-8
 d-i console-setup/layoutcode string us
 
 d-i keyboard-configuration/xkb-keymap string us
@@ -667,7 +669,9 @@ d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 
 d-i clock-setup/utc boolean true
-d-i time/zone string US/Eastern
+#d-i time/zone string US/Eastern
+d-i time/zone string Aisa/Shanghai
+d-i clock-setup/ntp-server string 0.debian.pool.ntp.org
 d-i clock-setup/ntp boolean true
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb fuse-modules-${vKernel_udeb}-amd64-di
